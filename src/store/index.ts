@@ -1,9 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+
+import uiSlice from './ui-slice';
+import searchSlice from './search-slice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    ui: uiSlice.reducer,
+    search: searchSlice.reducer,
   },
 });
 
