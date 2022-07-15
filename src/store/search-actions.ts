@@ -8,7 +8,7 @@ import { searchActions } from './search-slice';
 //   FETCHNOTIFICATIONMSG,
 // } from '../components/UI/Notification';
 import { baseUrl, ERRORMESSAGE } from '../core/constants';
-import { Url } from 'url';
+import { transform } from 'typescript';
 
 export const fetchSearchData = (terms: string) => {
   return async (dispatch: (arg0: { payload: any; type: string }) => void) => {
@@ -37,7 +37,13 @@ export const fetchSearchData = (terms: string) => {
             `fetch${searchType}Handler | termsArray length: ${termsArray.length} | termsArray: ${termsArray} | term: ${term}`
           );
           // console.log(`data: ${JSON.stringify(data.results)}`);
-          console.log(`data films: ${JSON.stringify(data.results[0].films)}`);
+          console.log(
+            `data films: ${
+              searchType === 'films'
+                ? JSON.stringify(data.results[0].url)
+                : JSON.stringify(data.results[0].films)
+            }`
+          );
 
           // const transformedMovies: any[] = data.results.map(
           //   (filmsData: any) => [filmsData.films]
@@ -49,7 +55,11 @@ export const fetchSearchData = (terms: string) => {
           ); */
 
           const transformedMovies = JSON.parse(
-            JSON.stringify(data.results[0].films)
+            JSON.stringify(
+              searchType === 'films'
+                ? data.results[0].url
+                : data.results[0].films
+            )
           );
           console.log(
             `transformedMovies: ${transformedMovies} | length: ${transformedMovies.length}`
@@ -81,10 +91,14 @@ export const fetchSearchData = (terms: string) => {
             });
           } */
 
-          transformedMovies.forEach((movie: any) => {
-            console.log(movie);
-            totalFilmsFetched.push(movie);
-          });
+          if (searchType === 'films') {
+            totalFilmsFetched.push(transformedMovies);
+          } else {
+            transformedMovies.forEach((movie: any) => {
+              console.log(movie);
+              totalFilmsFetched.push(movie);
+            });
+          }
 
           console.log(
             `transformed${searchType}Movies: ${
@@ -119,6 +133,11 @@ export const fetchSearchData = (terms: string) => {
       `fetchFilmsHandler('people') > peopleFilms: ${peopleFilms} | length: ${peopleFilms?.length}`
     );
 
+    const filmsFilms = await fetchFilmsHandler('films');
+    console.log(
+      `fetchFilmsHandler('films') > peopleFilms: ${filmsFilms} | length: ${filmsFilms?.length}`
+    );
+
     // const totalFilms: string[] = [...planetFilms || [], ...peopleFilms || []];
 
     // function onlyUnique(value: any, index: any, self: string | any[]) {
@@ -133,20 +152,16 @@ export const fetchSearchData = (terms: string) => {
 
     let uniqueFilms: string[] = [];
 
-    console.log('//////////');
-
-    peopleFilms.forEach((url) => {
+    filmsFilms.forEach((url) => {
       const existingUrl = uniqueFilms.find((item?) => item === url) || '';
       console.log(`existingUrl: ${existingUrl}`);
       // const filmNumber = url.substring(-2, 1);
       if (existingUrl === '') {
         uniqueFilms = [...uniqueFilms, url];
-        console.log(`url added: ${url}. uniqueFilms: ${uniqueFilms}`);
       }
       // console.log(filmNumber);
       // return filmNumber.substr(-2, 1);
     });
-    console.log('//////////');
     console.log(`uniqueFilms: ${uniqueFilms} | length: ${uniqueFilms?.length}`);
 
     /* const uniqueFilms = (totalFilms: string[]) => {
