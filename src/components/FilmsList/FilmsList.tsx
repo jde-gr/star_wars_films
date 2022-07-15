@@ -125,7 +125,7 @@ const FilmsList: FC<FilmsListProps> = () => {
   }, [fetchFilmsHandler]); */
 
   useEffect(() => {
-    dispatch(fetchSearchData('lars attack tatooine'));
+    dispatch(fetchSearchData('lars clone tatooine'));
   }, [dispatch]);
 
   return (
