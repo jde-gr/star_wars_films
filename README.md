@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Installed dependencies
 
 - React-Bootstrap. This framework is used to swap the layout among different device screen dimensions
+- date-fns. To format dates without using moment (deprecated)
 
 ## Available Scripts
 
