@@ -22,7 +22,7 @@ const searchSlice = createSlice({
       // state.films = action.payload.films;
     },
     clearFilms(state) {
-      state = initialSearchState;
+      state.films = [];
     },
     addFilm(state, action) {
       const newFilm = action.payload;

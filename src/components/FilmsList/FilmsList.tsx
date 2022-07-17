@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 // import { baseUrl, ERRORMESSAGE } from '../../core/constants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchSearchData } from '../../store/search-actions';
+import { searchActions } from '../../store/search-slice';
 import Film from '../../UI/Film/Film';
 // import styles from './FilmsList.module.css';
 

@@ -42,10 +42,12 @@ const Film: FC<FilmProps> = (props) => {
       <header>
         <h3 className={styles.title}>{title}</h3>
         <h3 className={styles.episode}>{`Episode ${episode_id.toString()}`}</h3>
+      </header>
+      <div>
         <h3
           className={styles.release}
         >{`${formattedDate} (${yearDiff} years ago)`}</h3>
-      </header>
+      </div>
     </Card>
   );
 };
