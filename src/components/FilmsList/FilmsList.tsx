@@ -2,9 +2,9 @@ import React, { FC, useEffect } from 'react';
 // import { baseUrl, ERRORMESSAGE } from '../../core/constants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchSearchData } from '../../store/search-actions';
-import { searchActions } from '../../store/search-slice';
-import Film from '../../UI/Film/Film';
-// import styles from './FilmsList.module.css';
+// import { searchActions } from '../../store/search-slice';
+import Film from '../Film/Film';
+import styles from './FilmsList.module.css';
 
 interface FilmsListProps {
   terms: string;
@@ -53,7 +53,7 @@ const FilmsList: FC<FilmsListProps> = ({ terms }) => {
   }, [dispatch, terms]);
 
   return (
-    <section data-test-id='filmsList'>
+    <section data-test-id='filmsList' className={styles.list}>
       {films.map((film) => (
         <Film
           key={film!.url}
@@ -65,6 +65,9 @@ const FilmsList: FC<FilmsListProps> = ({ terms }) => {
             director: film!.director,
             producer: film!.producer,
           }}
+          terms={terms}
+          to={''}
+          className={styles.film}
         />
       ))}
     </section>

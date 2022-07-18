@@ -15,6 +15,8 @@ describe('<Film />', () => {
           director: 'George Lucas',
           producer: 'Rick McCallum',
         }}
+        to={''}
+        terms={''}
       />
     );
     const url = 'https://swapi.dev/api/films/5/';

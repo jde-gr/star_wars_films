@@ -1,0 +1,43 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 10px;
+  width: calc(50% - 5px);
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.link:nth-child(even) {
+  margin-right: 0;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: normal;
+  margin: 0;
+}
+
+.episode {
+  font-size: 1.1rem;
+  color: #777;
+  font-weight: normal;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.release {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: normal;
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .link {
+    margin-right: 0;
+    width: 100%;
+  }
+}

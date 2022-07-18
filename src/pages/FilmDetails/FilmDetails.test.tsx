@@ -5,18 +5,7 @@ import FilmDetails from './FilmDetails';
 
 describe('<FilmDetails />', () => {
   test('it should mount', () => {
-    render(
-      <FilmDetails
-        film={{
-          url: 'https://swapi.dev/api/films/5/',
-          title: 'Attack of the Clones',
-          episode_id: 2,
-          release_date: '2002-05-16',
-          director: 'George Lucas',
-          producer: 'Rick McCallum',
-        }}
-      />
-    );
+    render(<FilmDetails />);
 
     const url = 'https://swapi.dev/api/films/5/';
 

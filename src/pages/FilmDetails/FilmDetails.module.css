@@ -1,1 +1,95 @@
-.FilmDetails {}
+.link {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+  color: black;
+}
+
+.linkText {
+  font-size: 14px;
+  margin-left: 4px;
+  color: black;
+}
+
+.link:hover .arrow,
+.link:hover .linkText {
+  color: royalblue;
+}
+
+.topCentered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.title span.episode {
+  font-size: 1rem;
+  margin-left: 8px;
+  color: #777;
+}
+
+.card {
+  border-color: #777;
+}
+
+.card:hover {
+  background-color: inherit;
+  border-color: #777;
+}
+
+.header {
+  display: flex;
+}
+
+.element {
+  width: 50%;
+}
+
+.p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.producer {
+  display: flex;
+}
+
+.producers {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    display: block;
+  }
+  .element {
+    width: 100%;
+  }
+}

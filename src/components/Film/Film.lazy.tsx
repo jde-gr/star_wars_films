@@ -7,6 +7,8 @@ const Film = (
 ) => (
   <Suspense fallback={null}>
     <LazyFilm
+      terms={''}
+      to={''}
       film={{
         url: '',
         title: '',

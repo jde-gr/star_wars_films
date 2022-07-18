@@ -1,8 +1,12 @@
 .card {
-  margin: 1rem auto;
+  margin: 1rem 0 0;
   border-radius: 6px;
   background-color: white;
   padding: 1rem;
-  width: 90%;
-  max-width: 40rem;
+  border: 1px solid black;
+}
+
+.card:hover {
+  background-color: #fafafa;
+  border: 1px solid royalblue;
 }

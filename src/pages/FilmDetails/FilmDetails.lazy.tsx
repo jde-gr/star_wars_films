@@ -6,17 +6,7 @@ const FilmDetails = (
   props: JSX.IntrinsicAttributes & { children?: React.ReactNode }
 ) => (
   <Suspense fallback={null}>
-    <LazyFilmDetails
-      film={{
-        url: '',
-        title: '',
-        episode_id: 0,
-        release_date: '',
-        director: '',
-        producer: '',
-      }}
-      {...props}
-    />
+    <LazyFilmDetails {...props} />
   </Suspense>
 );
 
