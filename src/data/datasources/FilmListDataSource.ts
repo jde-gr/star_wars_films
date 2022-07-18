@@ -11,7 +11,6 @@ export const FilmListDataSource = {
     termsArray: string[],
     totalFilmsFetched: string[]
   ) => {
-    // termsArray.forEach(async (term) => {
     for (let term of termsArray) {
       try {
         const response = await fetch(

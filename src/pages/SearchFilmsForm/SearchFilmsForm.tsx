@@ -39,10 +39,6 @@ const SearchFilmsForm: FC<SearchFilmsFormProps> = () => {
       className={terms === '' ? styles.centered : styles.topCentered}
       style={{ height: height }}
     >
-      {/* <div
-      className={`${styles.container} ${styles.centered}`}
-      style={{ height: height }}
-    > */}
       <div className={styles.container}>
         <h2 className={styles.title}>
           Search films by title, characters or planets

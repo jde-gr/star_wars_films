@@ -6,7 +6,7 @@ import SearchFilmsForm from './SearchFilmsForm';
 describe('<SearchFilmsForm />', () => {
   test('it should mount', () => {
     render(<SearchFilmsForm />);
-    
+
     const searchFilmsForm = screen.getByTestId('SearchFilmsForm');
 
     expect(searchFilmsForm).toBeInTheDocument();

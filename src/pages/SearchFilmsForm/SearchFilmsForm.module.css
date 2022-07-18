@@ -67,8 +67,18 @@
     justify-content: flex-start;
     align-items: center;
   }
+
   .container {
     width: 90%;
     padding: 20px;
+  }
+
+  .input,
+  .submit {
+    width: 100%;
+  }
+
+  .submit {
+    margin-top: 1rem;
   }
 }

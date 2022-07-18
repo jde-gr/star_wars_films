@@ -17,10 +17,6 @@ const searchSlice = createSlice({
   name: 'search',
   initialState: initialSearchState,
   reducers: {
-    replaceFilms(state) {
-      // const newSearch = action.payload;
-      // state.films = action.payload.films;
-    },
     clearFilms(state) {
       state.films = [];
     },

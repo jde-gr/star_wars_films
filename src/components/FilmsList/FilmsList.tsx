@@ -1,8 +1,6 @@
 import React, { FC, useEffect } from 'react';
-// import { baseUrl, ERRORMESSAGE } from '../../core/constants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchSearchData } from '../../store/search-actions';
-// import { searchActions } from '../../store/search-slice';
 import Film from '../Film/Film';
 import styles from './FilmsList.module.css';
 
@@ -13,40 +11,6 @@ interface FilmsListProps {
 const FilmsList: FC<FilmsListProps> = ({ terms }) => {
   const films = useAppSelector((state) => state.search.films);
   const dispatch = useAppDispatch();
-  // const terms = 'lars clone tatooine';
-
-  /* const fetchPlanetsHandler = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    let totalFilms: any[] = [];
-
-    try {
-      // not implemented
-    } catch (error) {
-      setError(error.message);
-      throw new Error(ERRORMESSAGE.fetchSearchDataError);
-    }
-    setIsLoading(false);
-  }, [termsArray]); */
-
-  /* const fetchPeopleHandler = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    let totalFilms: any[] = [];
-
-    try {
-      // not implemented
-    } catch (error) {
-      setError(error.message);
-      throw new Error(ERRORMESSAGE.fetchSearchDataError);
-    }
-    setIsLoading(false);
-  }, [termsArray]); */
-
-  /* useEffect(() => {
-    fetchFilmsHandler('planets');
-    // fetchFilmsHandler('people');
-  }, [fetchFilmsHandler]); */
 
   useEffect(() => {
     dispatch(fetchSearchData(terms));

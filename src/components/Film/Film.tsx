@@ -6,17 +6,6 @@ import styles from './Film.module.css';
 import Card from '../../UI/Card/Card';
 import { Link, To } from 'react-router-dom';
 
-/* interface FilmProps {
-  film: {
-    url: string;
-    title: string;
-    episode_id: number;
-    release_date: string;
-    director: string;
-    producer: string;
-  };
-} */
-
 interface FilmProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   replace?: boolean;
@@ -52,12 +41,6 @@ const Film: FC<FilmProps> = (props) => {
   const { title, episode_id, release_date, url, director, producer } =
     props.film;
 
-  /* const [film, setFilm] = useState(props);
-
-  useEffect(() => {
-    setFilm(props);
-  }, [props]); */
-
   const date = new Date(release_date);
   const now = new Date();
   const formattedDate = format(date, 'dd-MM-yyyy');
@@ -74,6 +57,7 @@ const Film: FC<FilmProps> = (props) => {
           director: director,
           producer: producer,
         },
+        terms: props.terms,
       }}
       key={url}
       className={styles.link}

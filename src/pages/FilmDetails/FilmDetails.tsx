@@ -1,7 +1,6 @@
 import { format } from 'date-fns';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import { cursorTo } from 'readline';
 import { ArrowBack } from '@mui/icons-material';
 
 import Card from '../../UI/Card/Card';
@@ -18,20 +17,17 @@ type LocationState = {
     director: string;
     producer: string;
   };
+  terms: string;
 };
 
 const FilmDetails: FC<FilmDetailsProps> = (props) => {
-  // const { title, episode_id, release_date, director, producer, url } =
-  //   props.film;
   const location = useLocation();
-  const { film } = location.state as LocationState;
+  const { film, terms } = location.state as LocationState;
   const navigate = useNavigate();
 
   console.log(
-    `FilmDetails: url: ${film.url} | title: ${film.title} | episode_id: ${film.episode_id} | release_date: ${film.release_date} | director: ${film.director} | producer: ${film.producer}`
+    `FilmDetails: url: ${film.url} | title: ${film.title} | episode_id: ${film.episode_id} | release_date: ${film.release_date} | director: ${film.director} | producer: ${film.producer} | terms: ${terms}`
   );
-
-  // const [movie, setMovie] = useState(film);
 
   const date = new Date(film.release_date);
   const formattedDate = format(date, 'dd-MM-yyyy');
@@ -50,29 +46,6 @@ const FilmDetails: FC<FilmDetailsProps> = (props) => {
   }
 
   let formattedProducer = formatLines(film.producer);
-
-  // .slice(0, -1);
-
-  // const fetchMovieHandler = useCallback(async () => {
-  //   const filmData = await FilmDataSource.fetchFilmData(url!);
-  //   const result = {
-  //     film: {
-  //       url: filmData.url,
-  //       title: filmData.title,
-  //       episode_id: filmData.episode_id,
-  //       release_date: filmData.release_date,
-  //       director: filmData.director,
-  //       producer: filmData.producer,
-  //     },
-  //   };
-  //   setMovie(result);
-  // }, [url]);
-
-  // useEffect(() => {
-  //   if (url) {
-  //     fetchMovieHandler();
-  //   }
-  // }, [fetchMovieHandler, url]);
 
   return (
     <>
