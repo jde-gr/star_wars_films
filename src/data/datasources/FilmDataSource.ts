@@ -10,15 +10,12 @@ export const FilmDataSource = {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        console.log('!response.ok');
         throw new Error(ERRORMESSAGE.fetchSearchDataError);
       }
 
       const data = await response.json();
 
       const movieData = JSON.parse(JSON.stringify(data));
-
-      console.log(`getFilmData > ${url}: ${JSON.stringify(data)}`);
 
       return movieData;
     } catch (error) {

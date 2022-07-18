@@ -25,10 +25,6 @@ const FilmDetails: FC<FilmDetailsProps> = (props) => {
   const { film, terms } = location.state as LocationState;
   const navigate = useNavigate();
 
-  console.log(
-    `FilmDetails: url: ${film.url} | title: ${film.title} | episode_id: ${film.episode_id} | release_date: ${film.release_date} | director: ${film.director} | producer: ${film.producer} | terms: ${terms}`
-  );
-
   const date = new Date(film.release_date);
   const formattedDate = format(date, 'dd-MM-yyyy');
 
@@ -46,6 +42,11 @@ const FilmDetails: FC<FilmDetailsProps> = (props) => {
   }
 
   let formattedProducer = formatLines(film.producer);
+
+  const termsArray = terms.split(' ');
+  termsArray.forEach((term) => {
+    console.log(term);
+  });
 
   return (
     <>
